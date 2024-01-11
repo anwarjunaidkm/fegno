@@ -8,8 +8,10 @@ function Cart() {
     <div className="">
       <h1 className="text-3xl font-semibold  text-center mt-6">Cart Items</h1>
       <div className="flex flex-col gap-2 p-2 min-h-[80vh]">
-        {cart.map((item, key) => {
-          return (
+        {cart.length === 0 ? (
+          <p className="text-center">Your cart is empty.</p>
+        ) : (
+          cart.map((item, key) => (
             <div
               key={key}
               className=" items-center  flex justify-around    border border-solid    "
@@ -26,8 +28,8 @@ function Cart() {
                 <div className="font-medium">${item.price}</div>
               </div>
             </div>
-          );
-        })}
+          ))
+        )}
       </div>
     </div>
   );
